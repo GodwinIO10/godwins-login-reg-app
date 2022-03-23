@@ -34,7 +34,7 @@ const RegisterPage = () => {
     
                     // making the api request ie calling the api...
                     const { data } = await axios.post(
-                        "http://localhost:4000/api/users/signup", 
+                        "http://localhost:4000/api/user/signup", 
                         {  // while supplying the body below:
                         name,
                         email,

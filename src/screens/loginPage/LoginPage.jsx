@@ -28,7 +28,7 @@ const LoginPage = () => {
 
             // making the request
             const { data } = await axios.post(
-                "http://localhost:4000/api/users/login", 
+                "http://localhost:4000/api/user/login", 
                 {
                     email,
                     password,

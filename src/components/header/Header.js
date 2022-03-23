@@ -2,9 +2,12 @@ import { Container, Form, FormControl, Nav, Navbar, NavDropdown, } from 'react-b
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import { useNavigate} from "react-router-dom"
+import { useSelector } from 'react-redux'
 
 
 function Header() {
+  const name = useSelector((state) => state.user.userInfo.name)
+
   const navigate = useNavigate()
     navigate("/", {replace: true} )
     return (
@@ -25,11 +28,13 @@ function Header() {
         <Nav.Link href="/login">
           RapidLearning
         </Nav.Link>
-        <NavDropdown title="Godwin O" id="collapsible-nav-dropdown">
+        <NavDropdown title={name} id="collapsible-nav-dropdown">
           <NavDropdown.Item>My Profile</NavDropdown.Item>
           <NavDropdown.Divider />
+          <NavDropdown.Item href="/update">Update Profile</NavDropdown.Item>
+          <NavDropdown.Divider />
           <NavDropdown.Item href="/">
-          Log Out</NavDropdown.Item>
+          Log Out ({name})</NavDropdown.Item>
         </NavDropdown>
       </Nav>
     </Navbar.Collapse>
